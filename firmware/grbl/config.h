@@ -38,7 +38,7 @@
 
 // Serial baud rate
 // #define BAUD_RATE 230400
-#define BAUD_RATE 57600
+#define BAUD_RATE 115200
 
 // Define realtime command special characters. These characters are 'picked-off' directly from the
 // serial read data stream and are not passed to the grbl line execution parser. Select characters
@@ -106,8 +106,13 @@
 // #define HOMING_CYCLE_2                         // OPTIONAL: Uncomment and add axes mask to enable
 
 // NOTE: The following are two examples to setup homing for 2-axis machines.
+
+// FOR HOMING BOTH X AND Y AXES
+// NOT COMPATIBLE WITH COREXY: Homes both X-Y in one cycle.
 // #define HOMING_CYCLE_0 ((1 << X_AXIS) | (1 << Y_AXIS))
-#define HOMING_CYCLE_0 (1 << X_AXIS) // NOT COMPATIBLE WITH COREXY: Homes both X-Y in one cycle.
+
+// HOMING X AXIS FIRST, THEN Y AXIS
+#define HOMING_CYCLE_0 (1 << X_AXIS)
 #define HOMING_CYCLE_1 (1 << Y_AXIS)
 
 // #define HOMING_CYCLE_0 (1 << X_AXIS) // COREXY COMPATIBLE: First home X
